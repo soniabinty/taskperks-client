@@ -38,16 +38,16 @@ const Register = () => {
   }
   
   return (
-    <div className="hero bg-base-200 min-h-screen">
-    <div className="hero-content flex-col lg:flex-row-reverse">
-      <div className="text-center lg:text-left">
-        <h1 className="text-5xl font-bold">Sign Up now!</h1>
-        <p className="py-6">
-          Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-          quasi. In deleniti eaque aut repudiandae et a id nisi.
-        </p>
-      </div>
-      <div className="card bg-base-100 w-full max-w-sm  shadow-2xl">
+    <div className='p-6 mx-auto w-11/12 text-center'>
+
+    <h2 className='text-2xl font-semibold'>Let's create your account!
+
+
+    </h2>
+    <p>
+    Already have an account?<Link className='text-green-500' to={'/login'}>Login !</Link></p>
+    
+    <div className="card bg-base-100 w-full max-w-xl  mx-auto text-start ">
         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
 
@@ -56,7 +56,7 @@ const Register = () => {
               <span className="label-text">Name</span>
             </label>
             <input  {...register("name",{ required: true })} type="text" name='name' placeholder="name" className="input input-bordered" required />
-            {errors.name && <span>Name is required</span>}
+            {errors.name && <span className='pl-1 text-red-600'>Name is required!</span>}
           </div>
 
 
@@ -65,7 +65,7 @@ const Register = () => {
               <span className="label-text">Photo URL</span>
             </label>
             <input  {...register("photo",{ required: true })} type="text" name='photo' placeholder="name" className="input input-bordered" required />
-            {errors.photo && <span>photo is required</span>}
+            {errors.photo && <span className='pl-1 text-red-600'>Photo is required!</span>}
           </div>
 
           <div className="form-control">
@@ -73,7 +73,7 @@ const Register = () => {
               <span className="label-text">Email</span>
             </label>
             <input  {...register("email",{ required: true }) } type="email" name='email' placeholder="email" className="input input-bordered" required />
-            {errors.email && <span>Email is required</span>}
+            {errors.email && <span className='pl-1 text-red-600'>Email is required!</span>}
           </div>
           <div className="form-control">
             <label className="label">
@@ -84,22 +84,20 @@ const Register = () => {
                maxLength: 20 , 
               //  pattern: /^[A-Za-z]+$/i 
                }) } type="password" name='password' placeholder="password" className="input input-bordered" required />
-            {errors.password?.type === 'required' && <span>Password is required</span>}
-            {errors.password?.type === 'minLength' && <span>Password must be 6 character</span>}
+            {errors.password?.type === 'required' && <span className='pl-1 text-red-600'>Password is required!</span>}
+            {errors.password?.type === 'minLength' && <span className='pl-1 text-red-600'>Password must be 6 character!</span>}
             {/* {errors.password?.type === 'pattern' && <span>Password must be one upercase one lowercase</span>} */}
           </div>
 
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Register</button>
+            <button className="btn hover:bg-green-500 bg-green-500 text-white">Register</button>
           </div>
         </form>
 
-        <p>Already Have an account?<Link to={'/login'}>Login</Link></p>
 
         <SocialLogin></SocialLogin>
       </div>
-    </div>
-  </div>
+       </div>
 );
 };
 

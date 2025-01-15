@@ -31,16 +31,14 @@ const Login = () => {
 
 
   return (
-    <div className="hero bg-base-200 min-h-screen">
-    <div className="hero-content flex-col lg:flex-row-reverse">
-      <div className="text-center lg:text-left">
-        <h1 className="text-5xl font-bold">Login now!</h1>
-        <p className="py-6">
-          Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-          quasi. In deleniti eaque aut repudiandae et a id nisi.
-        </p>
-      </div>
-      <div className="card bg-base-100 w-full max-w-sm  shadow-2xl">
+   <div className='p-6 mx-auto w-11/12 text-center'>
+
+<h2 className='text-2xl font-semibold'>We're glad to see you again!
+</h2>
+<p>
+Don't have an account?<Link className='text-green-500' to={'/register'}>Register !</Link></p>
+
+      <div className="card bg-base-100 w-full mx-auto max-w-xl ">
         <form onSubmit={handleLogin} className="card-body">
           <div className="form-control">
             <label className="label">
@@ -54,21 +52,19 @@ const Login = () => {
             </label>
             <input type="password" name='password' placeholder="password" className="input input-bordered" required />
             <label className="label">
-              <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+              <a href="#" className="label-text-alt link link-hover text-red-600">Forgot password?</a>
             </label>
           </div>
 
           <div className="form-control mt-6">
-            <button  className="btn btn-primary">Login</button>
+            <button  className="btn bg-green-500 text-white hover:bg-green-500">Login</button>
           </div>
         </form>
        
-        <p>New in TaskPerks?<Link to={'/register'}>Register Now</Link></p>
 
         <SocialLogin></SocialLogin>
       </div>
-    </div>
-  </div>
+   </div>
   );
 };
 

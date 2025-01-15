@@ -17,9 +17,11 @@ const SocialLogin = () => {
     })
   }
   return (
-    <div className='px-6' >
+    <div className='px-8' >
 
-      <button className='btn w-full bg-blue-300' onClick={handleGoogleLogin}><FaGoogle></FaGoogle></button>
+<div class="divider">OR</div>
+
+      <button className='btn w-full bg-green-500 text-white hover:bg-green-500' onClick={handleGoogleLogin}><FaGoogle></FaGoogle></button>
       
     </div>
   );
