@@ -4,12 +4,15 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 
 import useAuth from '../../Hooks/useAuth';
-import SocialLogin from '../../Shared/SocialLogin';
+
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
 
 const Register = () => {
 
   const navigate = useNavigate()
   const{createUser , updateProfileUser } = useAuth()
+  
+  const axiosPublic = useAxiosPublic()
 
   const {
     register,
@@ -20,14 +23,32 @@ const Register = () => {
   } = useForm()
  
   const onSubmit = (data) => {
+       const coins = data.role === "Worker" ? 10 : 50;
     createUser(data.email , data.password)
+ 
     .then(result =>{
       const user = result.user
       console.log(user)
 
 
       updateProfileUser(data.name , data.photo)
-   
+      .then(() =>{
+
+        const userInfo = {
+          name : data.name,
+          email : data.email,
+          role: data.role,
+        coins: parseInt(coins)
+        }
+       
+axiosPublic.post('/users' , userInfo)
+.then(res =>{
+     reset()
+        navigate('/')
+})
+
+     
+      })
 
     
 
@@ -49,7 +70,21 @@ const Register = () => {
     
     <div className="card bg-base-100 w-full max-w-xl  mx-auto text-start ">
         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-
+        <div className="form-control">
+            <label className="label">
+              <span className="label-text">Role</span>
+            </label>
+            <select
+            defaultValue="default"
+              {...register("role", { required: "Please select a role." })}
+              className="input input-bordered"
+            >
+              <option disabled value="default">Select Role</option>
+              <option value="Worker">Worker</option>
+              <option value="Buyer">Buyer</option>
+            </select>
+            {errors.role && <span className="pl-1 text-red-600">{errors.role.message}</span>}
+          </div>
 
         <div className="form-control">
             <label className="label">
@@ -94,8 +129,6 @@ const Register = () => {
           </div>
         </form>
 
-
-        <SocialLogin></SocialLogin>
       </div>
        </div>
 );
