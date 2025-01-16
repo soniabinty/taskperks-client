@@ -3,13 +3,17 @@ import { useForm } from 'react-hook-form';
 import { FaPlus } from 'react-icons/fa';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import useAuth from '../../Hooks/useAuth';
 const image_hosting_key = import.meta.env.VITE_image_hosting_apikey
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 const AddTask = () => {
 const axiosPublic = useAxiosPublic()
 const axiosSecure = useAxiosSecure()
+const {user} = useAuth()
   const { register, handleSubmit } = useForm()
   const onSubmit = async (data) => {
+
+  
   
     const imageFile = {image : data.image[0]}
     const res = await axiosPublic.post(image_hosting_api , imageFile ,{
@@ -27,7 +31,8 @@ const axiosSecure = useAxiosSecure()
         detail :data.detail,
        submission : data.submission,
        amount: data.amount,
-       image : res.data.data.display_url
+       image : res.data.data.display_url,
+      email : user.email ,
   
       }
 
