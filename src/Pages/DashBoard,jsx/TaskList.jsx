@@ -1,10 +1,12 @@
 import React from 'react';
-import useTasks from '../../Hooks/useTask';
-import { FaClock, FaMoneyBill, FaUsers } from 'react-icons/fa';
-import { FaUser } from 'react-icons/fa6';
+import useAllTasks from '../../Hooks/useAllTasks';
+import { Link } from 'react-router-dom';
+
 
 const TaskList = () => {
-  const [tasks] = useTasks()
+  const [tasks] = useAllTasks()
+
+
   return (
     <div className='md: grid grid-cols-3 gap-6'>
       {
@@ -33,8 +35,10 @@ Submission
           
 
   <div className='flex items-center justify-between'>
-             <p className='flex gap-1 text-xl  items-center text-green-500'>$ {task.amount} USD</p>  
-            <button className="btn bg-green-500 text-white hover:bg-green-500">View Details</button>
+             <p className='flex gap-1 text-xl  items-center text-green-500'>$ {task.amount} USD</p> 
+             <Link to={`/dashboard/tasklist/${task._id}`}> <button className="btn bg-green-500 text-white hover:bg-green-500">View Details</button>
+             </Link> 
+           
             </div>
 
           

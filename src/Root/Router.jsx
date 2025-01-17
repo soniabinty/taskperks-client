@@ -1,7 +1,8 @@
-import AddTask from "../Pages/DashBoard/AddTask";
-import DashBoard from "../Pages/DashBoard/DashBoard";
-import MyTask from "../Pages/DashBoard/MyTask";
-import TaskList from "../Pages/DashBoard/TaskList";
+import AddTask from "../Pages/DashBoard,jsx/AddTask";
+import DashBoard from "../Pages/DashBoard,jsx/DashBoard";
+import MyTask from "../Pages/DashBoard,jsx/MyTask";
+import TaskDetails from "../Pages/DashBoard,jsx/TaskDetails";
+import TaskList from "../Pages/DashBoard,jsx/TaskList";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Register/Login";
 import Register from "../Pages/Register/Register";
@@ -46,6 +47,11 @@ const router = createBrowserRouter([
           {
             path:"tasklist",
             element:<TaskList/>
+          },
+
+          {
+            path:"tasklist/:id",
+            element:<TaskDetails/>
           },
         ]
       }
