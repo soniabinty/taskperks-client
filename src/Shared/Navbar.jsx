@@ -12,7 +12,10 @@ const Navbar = () => {
   
           <NavLink to={'/register'}><li>Register</li></NavLink>
           {
-    user? <><button onClick={handleLogout} className='btn'>LogOut</button></> : <><li > 
+    user? 
+    <><button onClick={handleLogout} className='btn'>LogOut</button>
+ <NavLink to={'/dashboard'}><li>DashBoard</li></NavLink></> :
+     <><li > 
      <NavLink  to={'/login'}>Login
 
   </NavLink>
@@ -20,7 +23,6 @@ const Navbar = () => {
  </li>
 
 
- <NavLink to={'/dashboard'}><li>DashBoard</li></NavLink>
 </>
   }
           

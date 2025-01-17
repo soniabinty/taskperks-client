@@ -23,16 +23,24 @@ const {user} = useAuth()
     })
 
     if(res.data.success){
+
+      const formattedDate = new Date(data.date).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      });
+
       const tasks = {
 
         title : data.title ,
         Workers :  parseFloat(data.workers),
-        date : data.date,
+        date: formattedDate,
         detail :data.detail,
        submission : data.submission,
        amount: data.amount,
        image : res.data.data.display_url,
       email : user.email ,
+      buyer_name : user.displayName
   
       }
 

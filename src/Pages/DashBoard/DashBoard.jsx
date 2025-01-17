@@ -18,6 +18,7 @@ const DashBoard = () => {
 
 
     <h1>{users.email}</h1>
+    <h2>{users.coins}</h2>
      <div className='min-h-screen  m-6 mx-auto flex'>
 
 <div className=' bg-green-500 text-white p-4 w-56'>
@@ -62,6 +63,15 @@ const DashBoard = () => {
       <div className='flex items-center gap-1'>
       <RiCoinsFill />
      Purchase Coin
+</div>
+      </NavLink></li>
+
+
+
+      <li ><NavLink to={'/dashboard/tasklist'}> 
+      <div className='flex items-center gap-1'>
+   
+     TaskList
 </div>
       </NavLink></li>
 </>

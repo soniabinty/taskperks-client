@@ -1,14 +1,47 @@
 import React from 'react';
 import useTask from '../../Hooks/useTask';
 import { FaClock, FaEdit, FaTrash } from 'react-icons/fa';
-import { FaDeleteLeft } from 'react-icons/fa6';
+
+import Swal from 'sweetalert2';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 
 
 const MyTask = () => {
 
-  const [tasks] = useTask()
-console.log(tasks)
+  const [tasks , refetch] = useTask()
+  const axiosSecure = useAxiosSecure()
+
+  const handleDelete = id =>{
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+     
+axiosSecure.delete(`/tasks/${id}`)
+.then(res=>{
+if(res.data.deletedCount){
+
+  refetch()
+     Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success"
+        });
+}
+})
+      }
+    });
+
+  }
+
   return (
   <div className='space-y-5 mx-8'>
 
@@ -24,8 +57,8 @@ console.log(tasks)
         <p className='text-gray-500 flex items-center gap-2'><FaClock></FaClock> {task.date}</p>
          
         <div className='flex gap-6'>
-          <FaEdit className='text-green-500'></FaEdit>
-          <FaTrash className='text-red-600'></FaTrash>
+         <button > <FaEdit className='text-green-500'></FaEdit></button>
+          <button onClick={() => handleDelete(task._id)}><FaTrash className='text-red-600'></FaTrash></button>
 
         </div>
       </div>
