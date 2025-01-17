@@ -67,6 +67,16 @@ const DashBoard = () => {
       </NavLink></li>
 
 
+      <li><NavLink  to={'/dashboard/workerhome'}> 
+   <div className='flex items-center gap-1'>
+   <FaHome>
+    
+    </FaHome>
+    Home
+   </div>
+      </NavLink></li>
+
+
 
       <li ><NavLink to={'/dashboard/tasklist'}> 
       <div className='flex items-center gap-1'>

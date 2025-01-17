@@ -4,6 +4,7 @@ import DashBoard from "../Pages/DashBoard,jsx/DashBoard";
 import MyTask from "../Pages/DashBoard,jsx/MyTask";
 import TaskDetails from "../Pages/DashBoard,jsx/TaskDetails";
 import TaskList from "../Pages/DashBoard,jsx/TaskList";
+import WorkerHome from "../Pages/DashBoard,jsx/WorkerHome";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Register/Login";
 import Register from "../Pages/Register/Register";
@@ -53,6 +54,12 @@ const router = createBrowserRouter([
             path:"buyerhome",
             element:<BuyerHome/>
           },
+
+          {
+            path:"workerhome",
+            element:<WorkerHome/>
+          },
+
 
           {
             path:"tasklist/:id",
