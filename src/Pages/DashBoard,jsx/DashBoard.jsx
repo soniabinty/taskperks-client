@@ -30,7 +30,7 @@ const DashBoard = () => {
 
 
 <>
-   <li><NavLink  to={'/dashboard/user'}> 
+   <li><NavLink  to={'/dashboard/buyerhome'}> 
    <div className='flex items-center gap-1'>
    <FaHome>
     

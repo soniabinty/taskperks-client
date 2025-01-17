@@ -1,4 +1,5 @@
 import AddTask from "../Pages/DashBoard,jsx/AddTask";
+import BuyerHome from "../Pages/DashBoard,jsx/BuyerHome";
 import DashBoard from "../Pages/DashBoard,jsx/DashBoard";
 import MyTask from "../Pages/DashBoard,jsx/MyTask";
 import TaskDetails from "../Pages/DashBoard,jsx/TaskDetails";
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
           {
             path:"tasklist",
             element:<TaskList/>
+          },
+          {
+            path:"buyerhome",
+            element:<BuyerHome/>
           },
 
           {
