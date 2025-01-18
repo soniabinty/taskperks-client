@@ -11,6 +11,8 @@ import WorkerHome from "../Pages/DashBoard,jsx/WorkerHome";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Register/Login";
 import Register from "../Pages/Register/Register";
+import Forbidden from "../Shared/Forbidden";
+import AdminRoute from "./AdminRoute";
 import Root from "./Root";
 import {
   createBrowserRouter,
@@ -67,28 +69,45 @@ const router = createBrowserRouter([
             element:<MySubmission/>
           },
 
+  {
+            path:"tasklist/:id",
+            element:<TaskDetails/>
+          },
+
+
+          // admin route
+
           {
             path:"managetask",
-            element:<ManageTasks/>
+            element:
+            <AdminRoute>
+                <ManageTasks/>
+            </AdminRoute>
+        
           },
 
           {
             path:"manageuser",
-            element:<ManageUsers/>
+            element:<AdminRoute>
+               <ManageUsers/>
+            </AdminRoute>
+           
           },
 
 
-          {
-            path:"tasklist/:id",
-            element:<TaskDetails/>
-          },
+        
+         
         ]
       }
     ],
 
     
   },
-
+ 
+ {
+            path:"forbidden",
+            element:<Forbidden/>
+          },
 
 ]);
 

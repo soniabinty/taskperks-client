@@ -1,17 +1,20 @@
 
-import { FaHome, FaList, FaSearch, FaUsers } from 'react-icons/fa';
-import { FaBook, FaCalendar, FaCartShopping } from 'react-icons/fa6';
+import { FaHome } from 'react-icons/fa';
+
 import { GoTasklist } from 'react-icons/go';
-import { ImSpoonKnife } from 'react-icons/im';
-import { MdAddTask, MdAddToPhotos, MdOutlineReviews, MdPayments } from 'react-icons/md';
+
+import { MdAddTask, } from 'react-icons/md';
 import { RiCoinsFill } from 'react-icons/ri';
 import { NavLink, Outlet } from 'react-router-dom';
 import useUser from '../../Hooks/useUser';
+import useAdmin from '../../Hooks/useAdmin';
+import useBuyer from '../../Hooks/useBuyer';
 
 
 const DashBoard = () => {
   const [users] = useUser()
-
+  const [isAdmin] = useAdmin()
+  const [isBuyer] = useBuyer()
  
   return (
    <div>
@@ -29,8 +32,34 @@ const DashBoard = () => {
 
 
 
-<>
-   <li><NavLink  to={'/dashboard/buyerhome'}> 
+{
+  isAdmin &&  <> 
+  
+        <li ><NavLink to={'/dashboard/manageuser'}> 
+        <div className='flex items-center gap-1'>
+     
+       Manage Users
+  </div>
+        </NavLink></li>
+
+
+        <li ><NavLink to={'/dashboard/managetask'}> 
+        <div className='flex items-center gap-1'>
+     
+       Manage Tasks
+  </div>
+        </NavLink></li>
+  </>
+ 
+}
+
+
+
+{
+
+  isBuyer && <>
+
+<li><NavLink  to={'/dashboard/buyerhome'}> 
    <div className='flex items-center gap-1'>
    <FaHome>
     
@@ -39,16 +68,13 @@ const DashBoard = () => {
    </div>
       </NavLink></li>
 
-      
     <li ><NavLink to={'/dashboard/tasks'}> 
-    <div className='flex items-center gap-1'>
-    <MdAddTask />
-   Add New Tasks
-   </div>
-  
-      </NavLink></li>
+<div className='flex items-center gap-1'>
+<MdAddTask />
+Add New Tasks
+</div>
 
-
+  </NavLink></li>  
 
       <li ><NavLink to={'/dashboard/mytask'}>
       <div className='flex items-center gap-1'>
@@ -57,14 +83,30 @@ const DashBoard = () => {
 </div>
       </NavLink></li>
 
-
-      
+           
       <li ><NavLink to={'/dashboard/purchase'}> 
       <div className='flex items-center gap-1'>
       <RiCoinsFill />
      Purchase Coin
 </div>
       </NavLink></li>
+  
+  </>
+
+}
+
+<>
+ 
+
+      
+
+
+
+
+  
+
+
+ 
 
 
       <li><NavLink  to={'/dashboard/workerhome'}> 
@@ -96,19 +138,7 @@ const DashBoard = () => {
       </NavLink></li>
 
 
-<li ><NavLink to={'/dashboard/managetask'}> 
-      <div className='flex items-center gap-1'>
-   
-     Manage Tasks
-</div>
-      </NavLink></li>
 
-      <li ><NavLink to={'/dashboard/manageuser'}> 
-      <div className='flex items-center gap-1'>
-   
-     Manage Users
-</div>
-      </NavLink></li>
 
 
 </>
