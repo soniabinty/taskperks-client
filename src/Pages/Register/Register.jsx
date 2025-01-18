@@ -38,7 +38,8 @@ const Register = () => {
           name : data.name,
           email : data.email,
           role: data.role,
-        coins: parseInt(coins)
+        coins: parseInt(coins),
+        photo : data.photo
         }
        
 axiosPublic.post('/users' , userInfo)

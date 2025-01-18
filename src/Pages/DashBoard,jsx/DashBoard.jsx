@@ -103,6 +103,13 @@ const DashBoard = () => {
 </div>
       </NavLink></li>
 
+      <li ><NavLink to={'/dashboard/manageuser'}> 
+      <div className='flex items-center gap-1'>
+   
+     Manage Users
+</div>
+      </NavLink></li>
+
 
 </>
    
