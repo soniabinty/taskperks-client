@@ -1,6 +1,7 @@
 import AddTask from "../Pages/DashBoard,jsx/AddTask";
 import BuyerHome from "../Pages/DashBoard,jsx/BuyerHome";
 import DashBoard from "../Pages/DashBoard,jsx/DashBoard";
+import ManageTasks from "../Pages/DashBoard,jsx/ManageTasks";
 import MySubmission from "../Pages/DashBoard,jsx/MySubmission";
 import MyTask from "../Pages/DashBoard,jsx/MyTask";
 import TaskDetails from "../Pages/DashBoard,jsx/TaskDetails";
@@ -63,6 +64,11 @@ const router = createBrowserRouter([
           {
             path:"mysubmission",
             element:<MySubmission/>
+          },
+
+          {
+            path:"managetask",
+            element:<ManageTasks/>
           },
 
 

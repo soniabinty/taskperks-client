@@ -94,11 +94,17 @@ const DashBoard = () => {
      TaskList
 </div>
       </NavLink></li>
+
+
+<li ><NavLink to={'/dashboard/managetask'}> 
+      <div className='flex items-center gap-1'>
+   
+     Manage Tasks
+</div>
+      </NavLink></li>
+
+
 </>
-
-
-
-
    
   </ul>
 
