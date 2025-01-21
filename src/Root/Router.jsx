@@ -5,6 +5,7 @@ import ManageTasks from "../Pages/DashBoard,jsx/ManageTasks";
 import ManageUsers from "../Pages/DashBoard,jsx/ManageUsers";
 import MySubmission from "../Pages/DashBoard,jsx/MySubmission";
 import MyTask from "../Pages/DashBoard,jsx/MyTask";
+import PaymentHistory from "../Pages/DashBoard,jsx/PaymentHistory";
 import PaymentSystem from "../Pages/DashBoard,jsx/PaymentSystem";
 import PurchaseCoin from "../Pages/DashBoard,jsx/PurchaseCoin";
 import TaskDetails from "../Pages/DashBoard,jsx/TaskDetails";
@@ -82,6 +83,14 @@ const router = createBrowserRouter([
         path:"paymentsystem",
         element:
         <BuyerRoute>  <PaymentSystem/>
+        </BuyerRoute>
+ 
+      },
+
+      {
+        path:"payment",
+        element:
+        <BuyerRoute>  <PaymentHistory/>
         </BuyerRoute>
  
       },

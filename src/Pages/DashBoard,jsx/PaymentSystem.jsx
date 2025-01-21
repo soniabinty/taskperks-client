@@ -15,7 +15,7 @@ const PaymentSystem = () => {
   }
 
   return (
-    <div className="p-8">
+    <div className="md:p-8">
       <h2 className="text-2xl font-bold mb-4 text-center">Pay for {coins} Coins</h2>
       <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
         <Elements stripe={stripePromise}>

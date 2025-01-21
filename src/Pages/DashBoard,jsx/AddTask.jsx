@@ -28,7 +28,7 @@ const AddTask = () => {
 
       if (totalPayable > coins) {
         alert('Not enough coins. Please purchase more coins.');
-        navigate('/dashboard/paymentsystem');
+        navigate('/dashboard/purchase');
         return;
       }
 

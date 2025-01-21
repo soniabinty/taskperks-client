@@ -102,6 +102,13 @@ Add New Tasks
      Purchase Coin
 </div>
       </NavLink></li>
+
+      <li ><NavLink to={'/dashboard/payment'}> 
+      <div className='flex items-center gap-1'>
+      <RiCoinsFill />
+     Payment History
+</div>
+      </NavLink></li>
   
   </>
 

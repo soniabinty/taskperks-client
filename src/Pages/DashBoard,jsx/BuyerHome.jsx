@@ -4,35 +4,50 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useTask from "../../Hooks/useTask";
 import useAuth from "../../Hooks/useAuth";
-
+import useUser from "../../Hooks/useUser";
 
 const BuyerHome = () => {
   const [submissionData, refetch] = useSubmisson();
   const axiosSecure = useAxiosSecure();
-  const [tasks ] = useTask()
+  const [tasks] = useTask();
   const [task, setTask] = useState([]);
   const { user } = useAuth();
+  const [users] = useUser();
+  const [payments, setPayments] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [totalPayment, setTotalPayment] = useState(0); // State for total payment
 
+  // Fetch pending tasks
   useEffect(() => {
-    if (user?.email) { 
+    if (user?.email) {
       axiosSecure
         .get(`/submission/buyer?email=${user.email}&status=pending`)
         .then((res) => {
-          console.log(res.data);
-          
           setTask(res.data);
-        })
-       
-    
+        });
     }
   }, [axiosSecure, user]);
 
+  // Fetch payment data and calculate total payment
+  useEffect(() => {
+    if (users?.email) {
+      axiosSecure
+        .get(`/payments?email=${users.email}`)
+        .then((res) => {
+          setPayments(res.data);
+          setLoading(false);
+
+          // Calculate total payment
+          const total = res.data.reduce((sum, payment) => sum + payment.amount, 0);
+          setTotalPayment(total);
+        })
+        .catch(() => setLoading(false));
+    }
+  }, [axiosSecure, users.email]);
+
   const [modalData, setModalData] = useState(null);
 
-
-
   const updateStatus = async (id, newStatus) => {
-   
     axiosSecure
       .patch(`/submission/${id}`, { status: newStatus })
       .then((res) => {
@@ -73,7 +88,11 @@ const BuyerHome = () => {
         </div>
         <div className="p-4 bg-blue-100 text-center rounded-lg shadow">
           <h2 className="text-lg font-bold">Total Payment</h2>
-          <p className="text-2xl">0</p>
+          {loading ? (
+            <p className="text-2xl">Loading...</p>
+          ) : (
+            <p className="text-2xl">${totalPayment.toFixed(2)}</p>
+          )}
         </div>
       </div>
 
@@ -106,7 +125,7 @@ const BuyerHome = () => {
                   ${task.amount}
                 </td>
                 <td className="border border-gray-300 px-4 py-2">
-                  <div className="flex flex-wrap gap-2  justify-center">
+                  <div className="flex flex-wrap gap-2 justify-center">
                     <button
                       className="btn-sm max-sm:btn-xs bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600"
                       onClick={() => setModalData(task)}
@@ -126,7 +145,7 @@ const BuyerHome = () => {
                     </button>
                     <button
                       onClick={() => updateStatus(task._id, "rejected")}
-                      className={`btn-sm max-sm:btn-xs  text-white px-4 py-1 rounded ${
+                      className={`btn-sm max-sm:btn-xs text-white px-4 py-1 rounded ${
                         task.status === "rejected"
                           ? "bg-gray-400 cursor-not-allowed"
                           : "bg-red-500 hover:bg-red-600"
