@@ -10,6 +10,7 @@ import PaymentSystem from "../Pages/DashBoard,jsx/PaymentSystem";
 import PurchaseCoin from "../Pages/DashBoard,jsx/PurchaseCoin";
 import TaskDetails from "../Pages/DashBoard,jsx/TaskDetails";
 import TaskList from "../Pages/DashBoard,jsx/TaskList";
+import Withdrawals from "../Pages/DashBoard,jsx/WithDrawals";
 import WorkerHome from "../Pages/DashBoard,jsx/WorkerHome";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Register/Login";
@@ -108,6 +109,12 @@ const router = createBrowserRouter([
         path:"tasklist",
         element:<TaskList/>
       },
+
+      {
+        path:"withdrawals",
+        element:<Withdrawals/>
+      },
+     
      
       {
         path:"workerhome",

@@ -10,7 +10,7 @@ import useUser from '../../Hooks/useUser';
 import useAdmin from '../../Hooks/useAdmin';
 import useBuyer from '../../Hooks/useBuyer';
 import useWorker from '../../Hooks/UseWorker';
-import { FaBitcoinSign, FaList, FaListCheck } from 'react-icons/fa6';
+import { FaBitcoinSign, FaList, FaListCheck, FaMoneyBill } from 'react-icons/fa6';
 
 
 const DashBoard = () => {
@@ -150,6 +150,12 @@ isWorker &&
       </NavLink></li>
 
 
+      <li><NavLink  to={'/dashboard/withdrawals'}> 
+   <div className='flex items-center gap-1'>
+ <FaMoneyBill></FaMoneyBill>
+ WithDrawals
+   </div>
+      </NavLink></li>
 
 
 </>
