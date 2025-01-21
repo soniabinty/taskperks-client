@@ -51,7 +51,7 @@ const MySubmission = () => {
                     className={`px-2 py-1 rounded ${
                       t.status === "approve"
                         ? "bg-green-200 text-green-700"
-                        : t.status === "reject"
+                        : t.status === "rejected"
                         ? "bg-red-300 text-red-800"
                         : "bg-yellow-200 text-yellow-700"
                     }`}
