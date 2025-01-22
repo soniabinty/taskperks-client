@@ -1,4 +1,5 @@
 import AddTask from "../Pages/DashBoard,jsx/AddTask";
+import AdminHome from "../Pages/DashBoard,jsx/AdminHome";
 import BuyerHome from "../Pages/DashBoard,jsx/BuyerHome";
 import DashBoard from "../Pages/DashBoard,jsx/DashBoard";
 import ManageTasks from "../Pages/DashBoard,jsx/ManageTasks";
@@ -132,6 +133,17 @@ const router = createBrowserRouter([
 
 
       // admin route
+
+
+      {
+        path:"adminhome",
+        element:
+        <AdminRoute>
+            <AdminHome/>
+        </AdminRoute>
+    
+      },
+
 
       {
         path:"managetask",

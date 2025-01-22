@@ -8,7 +8,8 @@ const stripePromise = loadStripe(import.meta.env.VITE_publishable_key);
 
 const PaymentSystem = () => {
   const location = useLocation();
-  const { price, coins } = location.state || {}; // Extract price and coins from state
+  const { price, coins } = location.state || {}; 
+ 
 
   if (!price || !coins) {
     return <p className="text-red-500 text-center">Invalid purchase option. Please go back and select a valid option.</p>;

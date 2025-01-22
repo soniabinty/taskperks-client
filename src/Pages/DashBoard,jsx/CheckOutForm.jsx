@@ -4,6 +4,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useUser from "../../Hooks/useUser";
 
+
 const CheckOutForm = ({ amount, coins }) => {
   const axiosSecure = useAxiosSecure();
   const [clientSecret, setClientSecret] = useState("");
@@ -69,7 +70,7 @@ const CheckOutForm = ({ amount, coins }) => {
           userId: users._id,
           email: users.email,
           coins,
-          amount,
+          amount: parseInt(amount),
           transactionId: paymentIntent.id,
           date: new Date(),
         };

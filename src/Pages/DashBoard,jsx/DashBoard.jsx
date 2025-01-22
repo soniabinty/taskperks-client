@@ -196,7 +196,7 @@ isWorker &&
   <div className='flex gap-7 px-5 '>
               <div>
             <p className="text-md flex gap-2 itens-center ">
-             <FaCoins className='text-yellow-600'></FaCoins> <span className="font-bold text-green-500">{users?.coins}</span>
+             <FaCoins className='text-yellow-600'></FaCoins> <span className="font-bold text-green-500">{parseInt(users?.coins)}</span>
             </p>
             <p className="text-md font-bold text-green-500">
 {users?.role }

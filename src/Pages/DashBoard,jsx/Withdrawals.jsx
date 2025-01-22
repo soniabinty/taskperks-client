@@ -16,17 +16,16 @@ const Withdrawals = () => {
   const [users] = useUser();
   const totalCoins = users.coins;
 
-  // Initialize react-hook-form
+ 
   const { register, reset, handleSubmit, setValue, formState: { errors } } = useForm();
 
-  // Calculate withdrawal amount based on entered coins
   const handleWithdrawCoinsChange = (e) => {
     const value = parseInt(e.target.value, 10);
     if (!isNaN(value)) {
       setWithdrawCoins(value);
       setWithdrawAmount(value / 20);
-      setValue('withdrawCoins', value); // Update react-hook-form state
-      setValue('withdrawAmount', value / 20); // Update react-hook-form state
+      setValue('withdrawCoins', value); 
+      setValue('withdrawAmount', value / 20); 
     } else {
       setWithdrawCoins(0);
       setWithdrawAmount(0);
@@ -35,7 +34,7 @@ const Withdrawals = () => {
     }
   };
 
-  // Handle form submission
+  
   const onSubmit = (data) => {
     if (data.withdrawCoins > totalCoins) {
       Swal.fire({
@@ -49,15 +48,15 @@ const Withdrawals = () => {
     const withdrawalData = {
       worker_email: users.email,
       worker_name: users.name,
-      withdrawal_coin: data.withdrawCoins,
-      withdrawal_amount: data.withdrawAmount,
+      withdrawal_coin: parseFloat(data.withdrawCoins),
+      withdrawal_amount: parseFloat(data.withdrawAmount),
       payment_system: data.paymentSystem,
       withdraw_date: new Date(),
       status: "pending",
       account_number: data.accountNumber,
     };
 
-    // Save the withdrawal request in the database
+    
     axiosSecure
       .post("/withdrawals", withdrawalData)
       .then((res) => {
