@@ -32,33 +32,31 @@ const Register = () => {
       const user = result.user
       console.log(user)
 
-      const imageFile = {image : data.image[0]}
-      const res =  axiosPublic.post(image_hosting_api , imageFile ,{
+      const formData = new FormData();
+      formData.append("image", data.image[0]);
+      
+      axiosPublic.post(image_hosting_api, formData, {
         headers: {
-          'content-type' : 'multipart/form-data'
+          "content-type": "multipart/form-data",
+        },
+      }).then((res) => {
+        if (res.data.success) {
+          updateProfileUser(data.name, res.data.data.display_url).then(() => {
+            const userInfo = {
+              name: data.name,
+              email: data.email,
+              role: data.role,
+              coins: parseInt(coins),
+              photo: res.data.data.display_url,
+            };
+      
+            axiosPublic.post("/users", userInfo).then((res) => {
+              reset();
+              navigate("/");
+            });
+          });
         }
-      })
-
-      if (res?.data?.success){
-        updateProfileUser(data.name , res.data.data.display_url)
-        .then(() =>{
-  
-          const userInfo = {
-            name : data.name,
-            email : data.email,
-            role: data.role,
-          coins: parseInt(coins),
-          photo : res.data.data.display_url
-          }
-         
-  axiosPublic.post('/users' , userInfo)
-  .then(res =>{
-       reset()
-          navigate('/')
-  })
-})
-  
-      }
+      });
 
 
     

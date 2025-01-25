@@ -1,9 +1,10 @@
 import React from 'react';
+import BestWorker from './BestWorker';
 
 const Home = () => {
   return (
     <div>
-      hi
+    <BestWorker></BestWorker>
     </div>
   );
 };
