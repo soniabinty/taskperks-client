@@ -6,6 +6,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
+const image_hosting_key = import.meta.env.VITE_image_hosting_apikey;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const Register = () => {
 
@@ -30,26 +32,38 @@ const Register = () => {
       const user = result.user
       console.log(user)
 
-
-      updateProfileUser(data.name , data.photo)
-      .then(() =>{
-
-        const userInfo = {
-          name : data.name,
-          email : data.email,
-          role: data.role,
-        coins: parseInt(coins),
-        photo : data.photo
+      const imageFile = {image : data.image[0]}
+      const res =  axiosPublic.post(image_hosting_api , imageFile ,{
+        headers: {
+          'content-type' : 'multipart/form-data'
         }
-       
-axiosPublic.post('/users' , userInfo)
-.then(res =>{
-     reset()
-        navigate('/')
-})
-
-     
       })
+
+      if (res?.data?.success){
+        updateProfileUser(data.name , res.data.data.display_url)
+        .then(() =>{
+  
+          const userInfo = {
+            name : data.name,
+            email : data.email,
+            role: data.role,
+          coins: parseInt(coins),
+          photo : res.data.data.display_url
+          }
+         
+  axiosPublic.post('/users' , userInfo)
+  .then(res =>{
+       reset()
+          navigate('/')
+  })
+})
+  
+      }
+
+
+    
+     
+     
 
     
 
@@ -98,9 +112,13 @@ axiosPublic.post('/users' , userInfo)
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Photo URL</span>
+              <span className="label-text">Photo</span>
             </label>
-            <input  {...register("photo",{ required: true })} type="text" name='photo' placeholder="name" className="input input-bordered" required />
+            <input
+            {...register('image')}
+            type="file"
+            className="file-input file-input-bordered file-input-success w-full lg:w-auto"
+          />
             {errors.photo && <span className='pl-1 text-red-600'>Photo is required!</span>}
           </div>
 

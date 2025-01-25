@@ -10,7 +10,7 @@ const CheckOutForm = ({ amount, coins }) => {
   const [clientSecret, setClientSecret] = useState("");
   const stripe = useStripe();
   const elements = useElements();
-  const [users] = useUser();
+  const [users,refetch] = useUser();
   const [processing, setProcessing] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -77,6 +77,7 @@ const CheckOutForm = ({ amount, coins }) => {
 
         const res = await axiosSecure.post("/payments", paymentInfo);
         if (res.data.success) {
+          refetch()
           setSuccessMessage("Payment successful! Coins have been added to your account.");
           Swal.fire({
             icon: "success",

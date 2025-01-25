@@ -16,7 +16,7 @@ const AddTask = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const { register, handleSubmit , reset } = useForm();
-  const [users ] = useUser();
+  const [users,refetch ] = useUser();
   const coins = users.coins;
   const userId = users._id;
 
@@ -78,13 +78,9 @@ const AddTask = () => {
 
         
           const coinUpdateRes = await axiosSecure.patch(`/users_coin/${userId}`, { coins: remainingCoin });
+          refetch()
           console.log('coin inside coin fnc', remainingCoin)
-          if (coinUpdateRes?.data?.status === 'success') {
-            alert('Task added successfully!');
-          
-          } else {
-            console.error('Failed to update coins:', coinUpdateRes?.data);
-          }
+         
         } else {
           console.error('Failed to add task:', taskRes?.data);
         }

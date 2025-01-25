@@ -5,17 +5,20 @@ import Swal from "sweetalert2";
 import useTask from "../../Hooks/useTask";
 import useAuth from "../../Hooks/useAuth";
 import useUser from "../../Hooks/useUser";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const BuyerHome = () => {
   const [submissionData, refetch] = useSubmisson();
   const axiosSecure = useAxiosSecure();
+  const axiosPublic = useAxiosPublic();
   const [tasks] = useTask();
-  const [task, setTask] = useState([]);
+  const [pendingTask, setPendingTask] = useState([]);
   const { user } = useAuth();
   const [users] = useUser();
   const [payments, setPayments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [totalPayment, setTotalPayment] = useState(0); // State for total payment
+  console.log(pendingTask)
 
   // Fetch pending tasks
   useEffect(() => {
@@ -23,10 +26,11 @@ const BuyerHome = () => {
       axiosSecure
         .get(`/submission/buyer?email=${user.email}&status=pending`)
         .then((res) => {
-          setTask(res.data);
+          setPendingTask(res.data);
         });
     }
   }, [axiosSecure, user]);
+
 
   // Fetch payment data and calculate total payment
   useEffect(() => {
@@ -47,24 +51,38 @@ const BuyerHome = () => {
 
   const [modalData, setModalData] = useState(null);
 
-  const updateStatus = async (id, newStatus) => {
+  const updateStatus = async (task, newStatus) => {
     axiosSecure
-      .patch(`/submission/${id}`, { status: newStatus })
+      .patch(`/submission/${task._id}`, { status: newStatus })
       .then((res) => {
         if (res.data.modifiedCount > 0) {
           refetch();
           if (newStatus === "approve") {
-            // Increase worker coins here (example API call)
-            axiosSecure.patch(`/increase-coin/${id}`);
+            // Increase worker coins here 
+            axiosSecure.patch(`/increase-coin/${task._id}`).then(res=>{
+              console.log(res.data)
+              Swal.fire({
+                title: "Updated!",
+                text: `Submission has been ${newStatus}.`,
+                icon: "success",
+              });
+            })
           } else if (newStatus === "rejected") {
+            console.log(typeof(task.workers))
             // Increase required workers
             // axiosSecure.patch(`/increase-workers/${id}`);
+            axiosPublic
+      .patch(`/tasks-worker-upgrade/${task.taskId}`)
+      .then((res) => {
+        console.log("Task updated:", res.data)
+        Swal.fire({
+          title: "Updated!",
+          text: `Submission has been ${newStatus}.`,
+          icon: "success",
+        });
+      });
           }
-          Swal.fire({
-            title: "Updated!",
-            text: `Submission has been ${newStatus}.`,
-            icon: "success",
-          });
+        
         }
       })
       .catch((error) => {
@@ -84,7 +102,7 @@ const BuyerHome = () => {
         </div>
         <div className="p-4 bg-yellow-100 text-center rounded-lg shadow">
           <h2 className="text-lg font-bold">Pending Tasks</h2>
-          <p className="text-2xl">{task.length}</p>
+          <p className="text-2xl">{pendingTask.length}</p>
         </div>
         <div className="p-4 bg-blue-100 text-center rounded-lg shadow">
           <h2 className="text-lg font-bold">Total Payment</h2>
@@ -109,7 +127,7 @@ const BuyerHome = () => {
             </tr>
           </thead>
           <tbody>
-            {submissionData.map((task, idx) => (
+            {pendingTask.map((task, idx) => (
               <tr
                 key={task._id}
                 className="hover:bg-gray-100 transition duration-200"
@@ -133,7 +151,7 @@ const BuyerHome = () => {
                       View Submission
                     </button>
                     <button
-                      onClick={() => updateStatus(task._id, "approve")}
+                      onClick={() => updateStatus(task, "approve")}
                       className={`btn-sm max-sm:btn-xs text-white px-4 py-1 rounded ${
                         task.status === "approve"
                           ? "bg-gray-400 cursor-not-allowed"
@@ -144,7 +162,7 @@ const BuyerHome = () => {
                       Approve
                     </button>
                     <button
-                      onClick={() => updateStatus(task._id, "rejected")}
+                      onClick={() => updateStatus(task, "rejected")}
                       className={`btn-sm max-sm:btn-xs text-white px-4 py-1 rounded ${
                         task.status === "rejected"
                           ? "bg-gray-400 cursor-not-allowed"

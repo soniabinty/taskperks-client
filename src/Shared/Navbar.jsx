@@ -10,17 +10,22 @@ const Navbar = () => {
 
   const links = <>
   
-          <NavLink to={'/register'}><li>Register</li></NavLink>
+        
           {
     user? 
-    <><button onClick={handleLogout} className='btn'>LogOut</button>
- <NavLink to={'/dashboard'}><li>DashBoard</li></NavLink></> :
+    <>
+<li> <NavLink to={'/dashboard'}>DashBoard</NavLink></li>
+
+<li><button>Join as Developer</button></li>
+
+</> 
+ 
+ :
      <><li > 
-     <NavLink  to={'/login'}>Login
-
-  </NavLink>
-
+     <NavLink  to={'/login'}>Login</NavLink>
  </li>
+ <li> <NavLink to={'/register'}>Register</NavLink></li>
+ <li><button>Join as Developer</button></li>
 
 
 </>
@@ -59,7 +64,7 @@ const Navbar = () => {
       </ul>
     </div>
     <div className="navbar-end">
-      <a className="btn">Button</a>
+    <button onClick={handleLogout} className='btn'>LogOut</button>
     </div>
   </div>
   );

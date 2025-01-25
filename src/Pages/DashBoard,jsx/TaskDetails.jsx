@@ -57,7 +57,7 @@ const [users] = useUser()
     axiosPublic.post("/submission", submissionInfo).then(() => reset());
 
     axiosPublic
-      .patch(`/alltasks/${id}`, { workers: task.workers - 1 })
+      .patch(`/alltasks/${task._id}`, { workers: task.workers - 1 })
       .then((res) => console.log("Task updated:", res.data));
   };
 

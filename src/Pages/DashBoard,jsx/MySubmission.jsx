@@ -4,35 +4,31 @@ import useAuth from "../../Hooks/useAuth";
 
 const MySubmission = () => {
   const axiosSecure = useAxiosSecure();
-  const [task, setTask] = useState([]);
+  const [tasks, setTasks] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const { user } = useAuth();
+  const limit = 10; 
 
   useEffect(() => {
     if (user?.email) {
       axiosSecure
-        .get(`/submission/workeralltask?email=${user.email}`)
+        .get(`/submission/workeralltask?email=${user.email}&page=${currentPage}&limit=${limit}`)
         .then((res) => {
-          console.log(res.data);
-          setTask(res.data);
+          setTasks(res.data.submissions);
+          setTotalPages(res.data.totalPages);
         })
         .catch((error) => {
           console.error("Error fetching submissions:", error);
         });
     }
-  }, [axiosSecure, user]);
+  }, [axiosSecure, user, currentPage]);
 
-  if (!user) {
-    return (
-      <div className="flex items-center justify-center h-40">
-        <div className="flex flex-col items-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500"></div>
-          <p className="mt-4 text-lg font-semibold text-gray-600">
-            Loading submissions...
-          </p>
-        </div>
-      </div>
-    );
-  }
+  const handlePageChange = (page) => {
+    if (page > 0 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
 
   return (
     <div className="p-8 bg-gradient-to-br from-gray-100 via-white to-gray-50 rounded-lg shadow-lg">
@@ -51,15 +47,15 @@ const MySubmission = () => {
             </tr>
           </thead>
           <tbody>
-            {task.length > 0 ? (
-              task.map((t, idx) => (
+            {tasks.length > 0 ? (
+              tasks.map((t, idx) => (
                 <tr
                   key={t._id}
                   className={`text-gray-700 ${
                     idx % 2 === 0 ? "bg-white" : "bg-gray-50"
                   } hover:bg-blue-100 transition-all`}
                 >
-                  <td className="px-6 py-4">{idx + 1}</td>
+                  <td className="px-6 py-4">{(currentPage - 1) * limit + idx + 1}</td>
                   <td className="px-6 py-4">{t.title}</td>
                   <td className="px-6 py-4">{t.buyer_name}</td>
                   <td className="px-6 py-4">${t.amount}</td>
@@ -90,6 +86,37 @@ const MySubmission = () => {
             )}
           </tbody>
         </table>
+      </div>
+
+      {/* Pagination Controls */}
+      <div className="flex justify-center items-center mt-6 space-x-2">
+        <button
+          className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg disabled:opacity-50"
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+          <button
+            key={page}
+            className={`px-4 py-2 rounded-lg ${
+              currentPage === page
+                ? "bg-blue-500 text-white"
+                : "bg-gray-200 text-gray-700"
+            }`}
+            onClick={() => handlePageChange(page)}
+          >
+            {page}
+          </button>
+        ))}
+        <button
+          className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg disabled:opacity-50"
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
