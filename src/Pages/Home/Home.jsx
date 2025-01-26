@@ -4,6 +4,7 @@ import Testimonial from './Testimonial';
 import HeroSection from './HeroSection';
 import FeaturedServices from './FeaturedServices';
 import WhyChooseUs from './WhuChooseUs';
+import HowItWorks from './HowItWorks';
 
 
 const Home = () => {
@@ -14,7 +15,7 @@ const Home = () => {
     <Testimonial></Testimonial>
     <FeaturedServices></FeaturedServices>
     <WhyChooseUs></WhyChooseUs>
-   
+   <HowItWorks></HowItWorks>
     </div>
   );
 };

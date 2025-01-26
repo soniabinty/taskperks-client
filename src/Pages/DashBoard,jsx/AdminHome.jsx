@@ -37,7 +37,7 @@ const AdminHome = () => {
   const workers = users.filter((user) => user.role === "Worker");
   const buyers = users.filter((user) => user.role === "Buyer");
 
-  const handlePaymentSuccess = (withdrawalId, userEmail, withdrawalAmount) => {
+  const handlePaymentSuccess = (request) => {
     Swal.fire({
       title: "Approve Payment",
       text: "Are you sure you want to approve this withdrawal request?",
@@ -48,10 +48,11 @@ const AdminHome = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure
-          .patch(`/withdrawals/${withdrawalId}`, {
+          .patch(`/withdrawals/${ request._id}`, {
             status: "approved",
-            withdrawalAmount: withdrawalAmount,
-            userEmail: userEmail,
+            withdrawal_coin: request.withdrawal_coin,
+            withdrawal_amount: request.withdrawal_amount,
+            worker_email: request.worker_email
           })
           .then(() => {
             Swal.fire({
@@ -60,7 +61,7 @@ const AdminHome = () => {
               text: "Withdrawal request has been approved and user coins have been updated.",
             });
             setWithdrawRequests((prev) =>
-              prev.filter((req) => req._id !== withdrawalId)
+              prev.filter((req) => req._id !== request._id)
             );
           })
           .catch((err) => {
@@ -148,9 +149,7 @@ const AdminHome = () => {
                     className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition"
                     onClick={() =>
                       handlePaymentSuccess(
-                        request._id,
-                        request.worker_email,
-                        request.withdrawal_amount
+                       request
                       )
                     }
                   >
