@@ -3,7 +3,7 @@ import BestWorker from './BestWorker';
 import Testimonial from './Testimonial';
 import HeroSection from './HeroSection';
 import FeaturedServices from './FeaturedServices';
-import WhyChooseUs from './WhuChooseUs';
+import WhyChooseUs from './WhyChooseUs';
 import HowItWorks from './HowItWorks';
 
 

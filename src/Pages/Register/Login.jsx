@@ -3,10 +3,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import SocialLogin from '../../Shared/SocialLogin';
 
+
+
+
 const Login = () => {
+  
   const { signIn } = useAuth();
-  const navigate = useNavigate(); // for redirection
-  const [error, setError] = useState(null); // to store error message
+  const navigate = useNavigate(); 
+  const [error, setError] = useState(null); 
+ 
 
   const handleLogin = event => {
     event.preventDefault();
@@ -18,8 +23,7 @@ const Login = () => {
       .then(result => {
         const user = result.user;
         console.log(user);
-        // Redirect to dashboard after successful login
-        navigate('/dashboard');
+    navigate('/dashboard')
       })
       .catch(err => {
       
@@ -29,7 +33,7 @@ const Login = () => {
   };
 
   return (
-    <div className='p-6 mx-auto w-11/12 text-center'>
+    <div className='px-6 py-32 mx-auto w-11/12 text-center'>
       <h2 className='text-2xl font-semibold'>
         We're glad to see you again!
       </h2>

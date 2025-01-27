@@ -16,6 +16,7 @@ import { FaBitcoinSign, FaList, FaListCheck, FaMoneyBill } from 'react-icons/fa6
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useEffect, useState } from 'react';
 import useAuth from '../../Hooks/useAuth';
+import Footer from '../../Shared/Footer';
 
 
 
@@ -151,6 +152,7 @@ const DashBoard = () => {
       </div>
 </div>
           <Outlet></Outlet>
+          <Footer></Footer>
       </div>
     
     </div>

@@ -1,12 +1,24 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
+import { FaCoins } from 'react-icons/fa';
+import useUser from '../Hooks/useUser';
+
 
 const Navbar = () => {
   const {user ,signOutUser} = useAuth()
+  const [users] = useUser()
+
   const handleLogout = () =>{
     signOutUser()
   }
+  const handleClick = () => {
+    window.open(
+      "https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-soniabinty",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
 
   const links = <>
   
@@ -14,19 +26,38 @@ const Navbar = () => {
           {
     user? 
     <>
-<li> <NavLink to={'/dashboard'}>DashBoard</NavLink></li>
 
-<li><button>Join as Developer</button></li>
+<li> <NavLink to={'/dashboard'}>DashBoard</NavLink></li>
+<li>
+<button
+      onClick={handleClick}
+      className="px-4 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600 transition duration-300"
+    >
+      Join as Developer
+    </button>
+</li>
+
+<li>
+<button onClick={handleLogout} className='px-4 py-2'>LogOut</button>
+</li>
+
 
 </> 
  
  :
+ 
      <><li > 
      <NavLink  to={'/login'}>Login</NavLink>
  </li>
  <li> <NavLink to={'/register'}>Register</NavLink></li>
- <li><button>Join as Developer</button></li>
-
+<li>
+<button
+      onClick={handleClick}
+      className="px-4 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600 transition duration-300"
+    >
+      Join as Developer
+    </button>
+</li>
 
 </>
   }
@@ -52,11 +83,11 @@ const Navbar = () => {
         </div>
         <ul
           tabIndex={0}
-          className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+          className="menu menu-sm dropdown-content bg-green-500 rounded-box z-[1] mt-3 w-52 p-2 shadow">
          {links}
         </ul>
       </div>
-      <a className="btn btn-ghost text-xl">TaskParks</a>
+      <Link to='/' className="btn btn-ghost text-xl">TaskParks</Link>
     </div>
     <div className="navbar-center hidden lg:flex">
       <ul className="menu menu-horizontal px-1">
@@ -64,8 +95,18 @@ const Navbar = () => {
       </ul>
     </div>
     <div className="navbar-end">
-    <button onClick={handleLogout} className='btn'>LogOut</button>
-    </div>
+        <p className="text-md flex gap-2 bg-white rounded-full p-2 itens-center  mr-2">
+                 <FaCoins className='text-yellow-600'></FaCoins> <span className="font-bold text-green-500">{parseInt(users?.coins)}</span>
+                </p>
+                <div >
+           <img
+          src={users.photo}
+          alt="User"
+          className="w-12 h-12 rounded-full border-2 border-green-500"
+        />
+      
+        </div>
+       </div>
   </div>
   );
 };

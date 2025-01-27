@@ -2,6 +2,7 @@ import AddTask from "../Pages/DashBoard,jsx/AddTask";
 import AdminHome from "../Pages/DashBoard,jsx/AdminHome";
 import BuyerHome from "../Pages/DashBoard,jsx/BuyerHome";
 import DashBoard from "../Pages/DashBoard,jsx/DashBoard";
+import DashboardHome from "../Pages/DashBoard,jsx/DashboardHome";
 import ManageTasks from "../Pages/DashBoard,jsx/ManageTasks";
 import ManageUsers from "../Pages/DashBoard,jsx/ManageUsers";
 import MySubmission from "../Pages/DashBoard,jsx/MySubmission";
@@ -56,7 +57,10 @@ const router = createBrowserRouter([
     element: <DashBoard></DashBoard>,
     children:[
 
-    
+    {
+      path: '/dashboard',
+      element: <DashboardHome></DashboardHome>
+    },
 
 
       // buyer route

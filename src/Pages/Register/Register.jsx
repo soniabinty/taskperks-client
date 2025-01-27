@@ -66,7 +66,7 @@ const Register = () => {
   };
 
   return (
-    <div className="p-6 mx-auto w-11/12 text-center">
+    <div className="px-6 py-32 mx-auto w-11/12 text-center">
       <h2 className="text-2xl font-semibold">Let's create your account!</h2>
       <p>
         Already have an account?
