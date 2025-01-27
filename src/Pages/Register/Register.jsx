@@ -58,7 +58,9 @@ const Register = () => {
 
         await axiosPublic.post("/users", userInfo);
         reset();
-        navigate('/dashboard');
+        setTimeout(() => {
+          navigate('/dashboard');
+        }, 1000); 
       }
     } catch (error) {
       console.error("Error during registration:", error);

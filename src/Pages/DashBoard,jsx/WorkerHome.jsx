@@ -41,7 +41,7 @@ const WorkerHome = () => {
     <div className="container mx-auto p-6 space-y-8">
       <h1 className="text-3xl font-bold text-center text-purple-600 mb-6">Welcome to Your Dashboard, {user.name}!</h1>
 
-      <div className="md:grid md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Stats Section */}
         <div className="stats-item p-6 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white rounded-lg shadow-xl text-center">
           <h2 className="text-2xl font-semibold">Total Submissions</h2>

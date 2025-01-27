@@ -169,7 +169,7 @@ const DashBoard = () => {
   <div className=' bg-blue-500 text-white p-4 w-56 min-h-screen'>
 <div className="flex items-center gap-4">
           <div className="font-bold text-lg mb-4">
-            <Link to={'/'}>Logo</Link></div>
+            <Link to={'/'}>TaskPerks</Link></div>
         </div>
 
   <ul className='space-y-3'>

@@ -1,8 +1,36 @@
-# React + Vite
+# Project Name: [Your Project Name]
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+This is a **web application** designed to streamline task management and reward systems for workers, buyers, and administrators. The platform allows users to submit tasks, purchase coins, manage submissions, and track progress.
 
-Currently, two official plugins are available:
+## Live Link
+Visit the live application here: [Live Website](https://task-perks.web.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- **Admin Dashboard**:
+  - Manage tasks and users.
+  - Monitor platform activity.
+
+- **Worker Dashboard**:
+  - View assigned tasks.
+  - Submit completed tasks.
+  - Request withdrawals for earnings.
+
+- **Buyer Dashboard**:
+  - Add and manage tasks.
+  - Purchase coins for task submissions.
+
+- **Authentication**:
+  - Secure login system with roles (Admin, Worker, Buyer).
+  - Social login support.
+
+## Technologies Used
+- **Frontend**: React.js, Tailwind CSS
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **State Management**: React Query
+- **Authentication**: Firebase Authentication
+- **HTTP Client**: Axios
+
+
+
