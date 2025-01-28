@@ -95,17 +95,26 @@ const Navbar = () => {
       </ul>
     </div>
     <div className="navbar-end">
-        <p className="text-md flex gap-2 bg-white rounded-full p-2 itens-center  mr-2">
-                 <FaCoins className='text-yellow-600'></FaCoins> <span className="font-bold text-green-500">{parseInt(users?.coins)}</span>
-                </p>
-                <div >
-           <img
-          src={users.photo}
-          alt="User"
-          className="w-12 h-12 rounded-full border-2 border-green-500"
-        />
+
+    {
+      user &&   <p className="text-md flex gap-2 bg-white rounded-full p-2 itens-center  mr-2">
+      <FaCoins className='text-yellow-600'></FaCoins> <span className="font-bold text-green-500">{parseInt(users?.coins)}</span>
+     </p>
+     
+    }
+
+    {
+      user &&        <div >
+      <img
+     src={users.photo}
+     alt="User"
+     className="w-12 h-12 rounded-full border-2 border-green-500"
+   />
+ 
+   </div>
+    }
       
-        </div>
+         
        </div>
   </div>
   );
