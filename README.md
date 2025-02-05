@@ -123,15 +123,3 @@ To contribute:
 ## License
 This project is licensed under the [MIT License](LICENSE).
 
----
-
-_Developed with ❤️ by TaskPerks Team_
-```
-
-### What’s Improved?
-✔ **Structured Format** – Easier to read and navigate  
-✔ **Detailed Installation Guide** – Helps new contributors get started quickly  
-✔ **Configuration Section** – Ensures Firebase and API settings are clear  
-✔ **Live Demo Link Placeholder** – Ready to be replaced with the actual URL  
-
-Let me know if you need any refinements! 🚀
