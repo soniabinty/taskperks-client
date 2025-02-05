@@ -1,4 +1,4 @@
-# Project Name: [Your Project Name]
+# Project Name: [ TASKPERKS]
 
 ## Description
 This is a **web application** designed to streamline task management and reward systems for workers, buyers, and administrators. The platform allows users to submit tasks, purchase coins, manage submissions, and track progress.
