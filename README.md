@@ -1,7 +1,7 @@
 # TaskPerks
 
 
-![Taskperks Banner](https://i.ibb.co.com/zH4b9KQ6/task.png)
+![Taskperks Banner](https://i.ibb.co.com/sp5yzjG9/ttfstfdc.png)
 
 **TaskPerks** is a web application designed to streamline task management and reward systems for workers, buyers, and administrators. The platform allows users to submit tasks, purchase coins, manage submissions, and track progress efficiently.
 
