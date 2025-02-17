@@ -5,12 +5,16 @@ import HeroSection from './HeroSection';
 import FeaturedServices from './FeaturedServices';
 import WhyChooseUs from './WhyChooseUs';
 import HowItWorks from './HowItWorks';
+import BestDeals from './BestDeals';
+import Join from './Join';
 
 
 const Home = () => {
   return (
     <div>
-      <HeroSection></HeroSection>
+     
+      <BestDeals></BestDeals>
+      <Join></Join>
     <BestWorker></BestWorker>
     <Testimonial></Testimonial>
     <FeaturedServices></FeaturedServices>
