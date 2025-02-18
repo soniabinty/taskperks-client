@@ -14,6 +14,7 @@
     "@stripe/stripe-js": "^5.5.0",
     "@tanstack/react-query": "^5.64.1",
     "axios": "^1.7.9",
+    "date-fns": "^4.1.0",
     "firebase": "^11.1.0",
     "framer-motion": "^12.0.5",
     "localforage": "^1.10.0",

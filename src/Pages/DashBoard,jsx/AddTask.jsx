@@ -60,6 +60,7 @@ const AddTask = () => {
           image: res.data.data.display_url,
           email: user.email,
           buyer_name: user.displayName,
+           createdAt: new Date().toISOString(),
         };
 
         Swal.fire({

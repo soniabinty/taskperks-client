@@ -7,6 +7,7 @@ import WhyChooseUs from './WhyChooseUs';
 import HowItWorks from './HowItWorks';
 import BestDeals from './BestDeals';
 import Join from './Join';
+import NewRelease from '../DashBoard,jsx/NewRelease';
 
 
 const Home = () => {
@@ -14,12 +15,13 @@ const Home = () => {
     <div>
      
       <BestDeals></BestDeals>
+      <NewRelease></NewRelease>
       <Join></Join>
     <BestWorker></BestWorker>
     <Testimonial></Testimonial>
-    <FeaturedServices></FeaturedServices>
-    <WhyChooseUs></WhyChooseUs>
-   <HowItWorks></HowItWorks>
+    {/* <FeaturedServices></FeaturedServices> */}
+    {/* <WhyChooseUs></WhyChooseUs> */}
+   {/* <HowItWorks></HowItWorks> */}
     </div>
   );
 };

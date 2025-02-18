@@ -26,12 +26,13 @@ const Navbar = () => {
           {
     user? 
     <>
+    <li> <Link to={'/'}>Home</Link></li>
 
 <li> <NavLink to={'/dashboard'}>DashBoard</NavLink></li>
 <li>
 <button
       onClick={handleClick}
-      className="px-4 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600 transition duration-300"
+      className="px-4 py-2 text-white rounded-lg shadowtransition duration-300"
     >
       Join as Developer
     </button>
@@ -46,14 +47,17 @@ const Navbar = () => {
  
  :
  
-     <><li > 
+     <>
+      <li> <NavLink to={'/'}>Home</NavLink></li>
+     <li > 
      <NavLink  to={'/login'}>Login</NavLink>
  </li>
  <li> <NavLink to={'/register'}>Register</NavLink></li>
 <li>
 <button
       onClick={handleClick}
-      className="px-4 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600 transition duration-300"
+      className="px-4 py-2 
+       transition duration-300"
     >
       Join as Developer
     </button>
@@ -64,7 +68,7 @@ const Navbar = () => {
           
   </>
   return (
-    <div className="navbar fixed z-40 bg-black bg-opacity-30 text-white max-w-7xl py-4">
+    <div className="navbar fixed z-40 bg-[#014c57]  text-white ">
     <div className="navbar-start">
       <div className="dropdown">
         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
