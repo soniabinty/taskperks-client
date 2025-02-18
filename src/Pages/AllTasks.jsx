@@ -1,20 +1,16 @@
 import React from 'react';
-import useAllTasks from '../../Hooks/useAllTasks';
-import { Link } from 'react-router-dom';
 
-const TaskList = () => {
+import { Link } from 'react-router-dom';
+import useAllTasks from '../Hooks/useAllTasks';
+
+const AllTasks = () => {
   const [tasks] = useAllTasks();
 
   return (
-    <div className="container mx-auto md:p-6">
-      <h1 className="text-3xl font-bold text-center text-[#014c57] mb-8">Available Tasks</h1>  
-          
+    <div className="container mx-auto md:p-6 py-12">
+     
 
-      
-    
-   
-   
-   <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-12 pt-12 px-4">
+      <div className="grid gap-6 sm:grid-cols-3 lg:grid-cols-4 mt-12 pt-12 px-4">
         {tasks
           .filter(task => task.workers > 0)
           .map(task => (
@@ -69,15 +65,8 @@ mb-1">
             </div>
           ))}
       </div>
-
-  
-   
-   
-      
-      
- 
- </div>
+    </div>
   );
 };
 
-export default TaskList;
+export default AllTasks;

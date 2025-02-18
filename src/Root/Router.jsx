@@ -1,3 +1,4 @@
+import AllTasks from "../Pages/AllTasks";
 import AddTask from "../Pages/DashBoard,jsx/AddTask";
 import AdminHome from "../Pages/DashBoard,jsx/AdminHome";
 import BuyerHome from "../Pages/DashBoard,jsx/BuyerHome";
@@ -35,6 +36,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+
+      {
+    
+        path: "/alltasks",
+        element: <AllTasks></AllTasks>,
       },
       
       {
