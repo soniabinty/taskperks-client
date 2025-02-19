@@ -1,44 +1,52 @@
-import { FaSearch, FaClipboardCheck, FaRocket } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const HowItWorks = () => {
   const steps = [
     {
-      icon: <FaSearch className="text-green-500 text-5xl" />,
-      title: "Find a Task",
-      description: "Browse through our platform to find tasks that match your skills and interests.",
+      title: "Learn Easily",
+      description: "Learn how to do tasks with our quick online courses or free hands-on training.",
+      image: "https://i.ibb.co.com/SwSPsgd8/woman-working-from-home.jpg", 
     },
     {
-      icon: <FaClipboardCheck className="text-blue-500 text-5xl" />,
-      title: "Submit Your Work",
-      description: "Complete the task and submit your work for review by the task owner.",
+      title: "Complete Tasks",
+      description: "Work on tasks from projects you’ve unlocked.",
+      image: "https://i.ibb.co.com/KxT5B2Zv/woman-working-laptop-office.jpg", 
     },
     {
-      icon: <FaRocket className="text-purple-500 text-5xl" />,
-      title: "Earn Rewards",
-      description: "Get rewarded for your work and build your reputation on the platform.",
+      title: "Get Paid Weekly",
+      description: "Get paid fast via PayPal or AirTM based on your quality & number of tasks completed.",
+      image: "https://i.ibb.co.com/d4sQmSCy/portrait-businesswoman-sitting-office-with-money-working-making-profit-income-posing-happy.jpg", 
     },
   ];
 
   return (
-    <section className="bg-gray-100 py-16 px-8">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold mb-4">How It Works</h2>
-        <p className="text-lg text-gray-600">
-          Follow these simple steps to get started and achieve success on our platform.
-        </p>
-      </div>
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section className="text-center m-[80px] px-6 py-12 bg-gray-100">
+      <h2 className="text-[#014c57] font-semibold tracking-wide">HOW IT WORKS</h2>
+      <h1 className="text-[#014c57] text-3xl sm:text-4xl font-bold mt-2">
+        Do tasks, get paid. It's that simple.
+      </h1>
+      <p className="text-gray-600 mt-3 max-w-xl mx-auto">
+        From labeling images to transcribing audio, earn money completing simple tasks.
+      </p>
+
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-12 max-w-5xl mx-auto">
         {steps.map((step, index) => (
-          <div
+          <motion.div
             key={index}
-            className="flex flex-col items-center bg-white text-center p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            viewport={{ once: true }}
+            className="text-center"
           >
-            <div className="flex items-center justify-center h-20 w-20 rounded-full bg-gray-100 mb-4">
-              {step.icon}
-            </div>
-            <h3 className="text-2xl font-semibold mb-2">{step.title}</h3>
-            <p className="text-gray-700">{step.description}</p>
-          </div>
+            <img
+              src={step.image}
+              alt={step.title}
+              className="w-full h-64 object-cover rounded-lg shadow-md"
+            />
+            <h3 className="text-xl text-[#014c57] font-bold mt-4">{step.title}</h3>
+            <p className="text-gray-600 mt-2">{step.description}</p>
+          </motion.div>
         ))}
       </div>
     </section>

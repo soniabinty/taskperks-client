@@ -10,18 +10,20 @@ import Join from './Join';
 import NewRelease from '../DashBoard,jsx/NewRelease';
 
 
+
 const Home = () => {
   return (
     <div>
      
       <BestDeals></BestDeals>
+    
       <NewRelease></NewRelease>
       <Join></Join>
     <BestWorker></BestWorker>
     <Testimonial></Testimonial>
     {/* <FeaturedServices></FeaturedServices> */}
     {/* <WhyChooseUs></WhyChooseUs> */}
-   {/* <HowItWorks></HowItWorks> */}
+   <HowItWorks></HowItWorks>
     </div>
   );
 };
