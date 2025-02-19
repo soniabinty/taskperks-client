@@ -17,7 +17,7 @@ const BestWorker = () => {
   }, []);
   
   return (
-    <div className="p-6 mt-10">
+    <div className="px-6 py-3 mb-12">
       <header className="text-center mb-10">
         <h1 className="text-4xl font-bold mb-4">Best Workers</h1>
         <p className="text-lg text-gray-600">Connecting you with the best workers for your tasks</p>

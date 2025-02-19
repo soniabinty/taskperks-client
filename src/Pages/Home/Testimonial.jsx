@@ -49,7 +49,7 @@ const testimonials = [
 
 const Testimonial = () => {
   return (
-    <div    className='  h-[500px] relative' style={{
+    <div    className='  h-[500px] relative mb-12' style={{
       backgroundImage: `url('${img}')`,
       backgroundSize: "cover",
       backgroundPosition: "center",

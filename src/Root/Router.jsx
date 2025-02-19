@@ -19,6 +19,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Register/Login";
 import Register from "../Pages/Register/Register";
 import Forbidden from "../Shared/Forbidden";
+import Profile from "../Shared/Profile";
 import AdminRoute from "./AdminRoute";
 import BuyerRoute from "./BuyerRoute";
 import Root from "./Root";
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
         path: "login",
         element: <Login />,
       },
+      {
+        path: 'profile',
+        element: <Profile/>
+      }
 
     
     ],
