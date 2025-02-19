@@ -4,9 +4,9 @@ import { FaEdit } from "react-icons/fa";
 
 const Profile = () => {
   const [users] = useUser();
-  const userData = users || {}; // Ensure userData is defined
+  const userData = users || {}; 
 
- // Use a default image
+
 console.log(users)
   return (
     <div className="p-6 bg-white rounded-lg shadow-md">
@@ -29,16 +29,7 @@ console.log(users)
           <p className="font-bold">Email:</p>
           <p>{userData.email || "N/A"}</p>
         </div>
-       
-       
-       
-       
-       
-       
-       
-       
-              
-                    </div>
+     </div>
     </div>
   );
 };
