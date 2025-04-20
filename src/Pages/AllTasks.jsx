@@ -7,10 +7,10 @@ const AllTasks = () => {
   const [tasks] = useAllTasks();
 
   return (
-    <div className="container mx-auto md:p-6 py-12">
+    <div className="container mx-auto lg:p-6 py-12">
      
 
-      <div className="grid gap-6 sm:grid-cols-3 lg:grid-cols-4 mt-12 pt-12 px-4">
+      <div className="grid gap-6 sm:grid-cols-3 lg:grid-cols-4 mt-12 pt-12 lg:px-4">
         {tasks
           .filter(task => task.workers > 0)
           .map(task => (

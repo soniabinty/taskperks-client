@@ -20,9 +20,9 @@ const NewRelease = () => {
   }, []);
 
   return (
-    <div className="p-12">
-             <h2 className="text-4xl font-semibold text-center mb-8">New Works Release</h2>
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 mx-12">
+    <div className="md:p-6 lg:p-12 p-4">
+             <h2 className="text-4xl  font-semibold text-center mb-8">New Works Release</h2>
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 md:mx-12">
         {newRelease
           .filter((newR) => newR.workers > 0)
           .map((newR) => (

@@ -6,15 +6,15 @@ import { FaPlusCircle } from 'react-icons/fa';
 import { MdLaptopChromebook } from 'react-icons/md';
 const Join = () => {
   return (
-    <div className='flex '>
+    <div className='md:flex  md:my-10'>
 
       <div className='flex-1 border-b border-[#014c57]'>
 
       <div className='  '>
 
-<div className='p-8 text-center space-y-4 w-11/12 mx-auto pt-[90px]'>
+<div className='p-8 text-center  space-y-4 w-11/12 mx-auto pt-[90px]'>
 
-<MdLaptopChromebook className='text-4xl mx-auto mt-12 text-[#014c57]' />
+<MdLaptopChromebook className='text-4xl mx-auto md:mt-12 text-[#014c57]' />
 <h3 className='text-3xl font-bold'>I'M A BUYER</h3>
 <h5 className='text-[#014c57]'>__  ________</h5>
 <p>Post tasks, review submissions, and manage workers efficiently with a seamless experience.</p>

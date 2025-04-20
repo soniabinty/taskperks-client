@@ -37,7 +37,7 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 flex lg:mt-16 items-center justify-center h-full text-center">
-        <div className="text-white  mx-auto space-y-6">
+        <div className="text-white mt-10  mx-auto space-y-6">
           {slides.map((slide, index) => (
             <div
               key={index}

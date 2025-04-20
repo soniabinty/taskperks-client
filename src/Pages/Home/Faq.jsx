@@ -2,7 +2,7 @@
 import img from "../../assets/Questions-pana (1).png"
 const Faq = () => {
   return (
-    <div className="relative border m-[80px] rounded-2xl shadow-xl flex flex-col md:flex-row items-center justify-center">
+    <div className="relative border lg:m-[80px] rounded-2xl shadow-xl flex flex-col md:flex-row items-center justify-center px-3 md:px-12 py-6">
       {/* Left Section */}
       <div className="flex-1 relative">
        <img src={img} alt="" />
@@ -20,55 +20,53 @@ const Faq = () => {
           <div className="collapse collapse-arrow join-item border-base-300 border">
             <input type="radio" name="my-accordion-4" defaultChecked />
             <div className="collapse-title text-xl font-medium">
-              How do I create an assignment for my group?
+            What is TASKPERKS, and how does it work?
             </div>
             <div className="collapse-content">
               <p>
-                To create an assignment, click on the "Create Assignment" button
-                in your dashboard. Fill out the title, description, and
-                deadline, and share it with your group. Once submitted, all
-                group members will be able to access it.
+               TASKPERKS is a task management and reward platform designed for workers, buyers, and administrators. Workers can complete and submit tasks, earn rewards, and track progress. Buyers can post tasks, and administrators oversee the system. Users can also purchase coins to unlock more opportunities.
               </p>
             </div>
           </div>
           <div className="collapse collapse-arrow join-item border-base-300 border">
             <input type="radio" name="my-accordion-4" />
             <div className="collapse-title text-xl font-medium">
-              How can I grade my friends’ assignments?
+            How do I submit a task on TASKPERKS?
             </div>
             <div className="collapse-content">
               <p>
-                {" "}
-                In the "Pending Assignments" section, you’ll find a list of
-                submitted assignments from your group. Open an assignment,
-                review it, and provide a grade along with optional feedback.
+               To submit a task:
+Log in to your account,
+Navigate to the Task Submission section,
+Select the task you want to submit,
+Upload the required proof (screenshots, links, or descriptions),
+Click Submit, and your task will be reviewed before approval.
+
+</p>
+
+            </div>
+          </div>
+          <div className="collapse collapse-arrow join-item border-base-300 border">
+            <input type="radio" name="my-accordion-4" />
+            <div className="collapse-title text-xl font-medium">
+            How do I earn rewards on TASKPERKS?
+            </div>
+            <div className="collapse-content">
+              <p>
+                You earn rewards by successfully completing tasks. Once a submitted task is approved, you receive coins, which can be used to unlock new tasks, redeem rewards, or cash out (if applicable).
+            
+            
               </p>
             </div>
           </div>
           <div className="collapse collapse-arrow join-item border-base-300 border">
             <input type="radio" name="my-accordion-4" />
             <div className="collapse-title text-xl font-medium">
-              Are my grades and feedback visible to everyone?
+            How can I purchase coins, and what payment methods are accepted?
             </div>
             <div className="collapse-content">
               <p>
-                No, grades and feedback are only visible to the assignment owner
-                and you. Other group members cannot see the feedback unless
-                explicitly shared by the owner.
-              </p>
-            </div>
-          </div>
-          <div className="collapse collapse-arrow join-item border-base-300 border">
-            <input type="radio" name="my-accordion-4" />
-            <div className="collapse-title text-xl font-medium">
-              How do I track my completed and pending assignments?
-            </div>
-            <div className="collapse-content">
-              <p>
-                {" "}
-                Use the "Assignment Tracker" on your dashboard to view all
-                assignments. Completed assignments will be marked, and pending
-                ones will show up with their due dates for easy tracking.
+               You can purchase coins by navigating to the Buy Coins section in your dashboard. TASKPERKS supports secure payments through Stripe, allowing transactions via credit/debit cards and other supported payment methods.
               </p>
             </div>
           </div>

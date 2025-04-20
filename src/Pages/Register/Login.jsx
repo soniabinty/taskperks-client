@@ -35,7 +35,7 @@ const Login = () => {
       <h2 className="text-2xl font-semibold">We're glad to see you again!</h2>
       <p>
         Don't have an account?{' '}
-        <Link className="text-green-500" to={'/register'}>
+        <Link className="text-[#014c57]" to={'/register'}>
           Register!
         </Link>
       </p>
@@ -76,7 +76,7 @@ const Login = () => {
           {error && <p className="text-red-600">{error}</p>}
 
           <div className="form-control mt-6">
-            <button className="btn bg-green-500 text-white hover:bg-green-500">
+            <button className="btn bg-[#014c57] text-white hover:bg-[#014c57]">
               Login
             </button>
           </div>

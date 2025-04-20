@@ -15,6 +15,7 @@ import TaskDetails from "../Pages/DashBoard,jsx/TaskDetails";
 import TaskList from "../Pages/DashBoard,jsx/TaskList";
 import Withdrawals from "../Pages/DashBoard,jsx/WithDrawals";
 import WorkerHome from "../Pages/DashBoard,jsx/WorkerHome";
+import About from "../Pages/Home/About";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Register/Login";
 import Register from "../Pages/Register/Register";
@@ -53,10 +54,13 @@ const router = createBrowserRouter([
         path: "login",
         element: <Login />,
       },
+    
+    
       {
-        path: 'profile',
-        element: <Profile/>
-      }
+        path: "about",
+        element: <About></About>,
+      },
+    
 
     
     ],
@@ -69,10 +73,16 @@ const router = createBrowserRouter([
     element: <DashBoard></DashBoard>,
     children:[
 
+
+
+
     {
       path: '/dashboard',
       element: <DashboardHome></DashboardHome>
     },
+
+
+
 
 
       // buyer route
@@ -181,7 +191,10 @@ const router = createBrowserRouter([
       },
 
 
-    
+      {
+        path:"profile",
+        element: <Profile></Profile>
+      },
      
     ]
   },

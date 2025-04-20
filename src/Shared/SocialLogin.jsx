@@ -38,7 +38,7 @@ const SocialLogin = () => {
 
 <div className="divider">OR</div>
 
-      <button className='btn w-full bg-green-500 text-white hover:bg-green-500' onClick={handleGoogleLogin}><FaGoogle></FaGoogle></button>
+      <button className='btn w-full bg-[#014c57] text-white hover:bg-[#014c57]' onClick={handleGoogleLogin}><FaGoogle></FaGoogle></button>
       
     </div>
   );

@@ -31,7 +31,9 @@ const Navbar = () => {
     <li> <Link to={'/'}>Home</Link></li>
     <li> <Link to={'/alltasks'}>All Tasks</Link></li>
     <li> <Link to={'/dashboard'}>DashBoard</Link></li>
+    <li> <Link to={'/about'}>About Us</Link></li>
 <li>
+
 <button
       onClick={handleClick}
       className=" py-2 text-white "
@@ -55,7 +57,7 @@ const Navbar = () => {
      <>
     <li> <Link to={'/'}>Home</Link></li>
     <li> <Link to={'/alltasks'}>All Tasks</Link></li>
-
+<li> <Link to={'/about'}>About Us</Link></li>
 
 
 <li>
@@ -70,6 +72,9 @@ const Navbar = () => {
     </button>
 </li>
 
+
+
+
 <div className='md:hidden'>
 <li > 
       
@@ -79,12 +84,15 @@ const Navbar = () => {
 
 </div>
 
+
+
+
 </>
   }
           
   </>
   return (
-    <div className="navbar fixed z-40 bg-[#014c57]  text-white px-14 ">
+    <div className="navbar fixed z-40 bg-[#014c57]  text-white md:px-6 lg:px-14 ">
     <div className="navbar-start">
       <div className="dropdown">
         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

@@ -20,7 +20,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="text-center m-[80px] px-6 py-12 bg-gray-100">
+    <section className="text-center max-sm:mt-[150px] lg:m-[80px] md:m-6 md:px-6 py-12 bg-gray-100">
       <h2 className="text-[#014c57] font-semibold tracking-wide">HOW IT WORKS</h2>
       <h1 className="text-[#014c57] text-3xl sm:text-4xl font-bold mt-2">
         Do tasks, get paid. It's that simple.

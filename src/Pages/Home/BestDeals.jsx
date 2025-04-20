@@ -17,7 +17,7 @@ const BestDeals = () => {
 
     }}>
 
-      <div className='bg-[#014c57] bg-opacity-80 absolute inset-0 mx-auto px-12 pt-4 text-white ' >
+      <div className='bg-[#014c57] bg-opacity-80 absolute inset-0 mx-auto md:backdrop:px-12 pt-4 text-white ' >
 
 
         <div className='my-12 text-center'>
@@ -25,7 +25,7 @@ const BestDeals = () => {
         <h5>__  ___________</h5>
         </div>
 
-        <div className='grid mt-5 grid-cols-1 md:grid-cols-3 gap-8 mx-12 '>
+        <div className='grid mt-5 grid-cols-1 md:grid-cols-3 gap-8 lg:mx-12 '>
 
           <div className='p-8 space-y-3  hover:bg-white hover:text-[#014c57] border-b'>
           <IoShieldCheckmark className='text-3xl' />
@@ -43,7 +43,7 @@ const BestDeals = () => {
 
 
 
-          <div className='p-8 space-y-3  hover:bg-white hover:text-[#014c57] border-b'>
+          <div className='p-8 space-y-3 hidden md:flex flex-col   hover:bg-white hover:text-[#014c57] border-b'>
           <PiCoinsLight className='text-3xl' />
           <h4 className='text-2xl'> Earn Rewards</h4>
           <p>Complete tasks and earn coins that can be redeemed for rewards.</p>
@@ -52,7 +52,7 @@ const BestDeals = () => {
 
 
 
-          <div className='p-8 space-y-3  hover:bg-white hover:text-[#014c57] border-b'>
+          <div className='p-8 space-y-3 hidden md:flex flex-col   hover:bg-white hover:text-[#014c57] border-b'>
           <IoMdNotifications  className='text-3xl' />
           <h4 className='text-2xl'> Task Notifications</h4>
           <p>Receive instant updates about your task status and approvals.</p>
@@ -60,7 +60,7 @@ const BestDeals = () => {
           </div>
 
 
-          <div className='p-8 space-y-3  hover:bg-white hover:text-[#014c57] border-b'>
+          <div className='p-8 space-y-3 hidden md:flex flex-col   hover:bg-white hover:text-[#014c57] border-b'>
           <FaMoneyCheck  className='text-3xl' />
           <h4 className='text-2xl'> Secure Payments</h4>
           <p>Withdraw your earned rewards with a safe and fast transaction process.</p>
@@ -68,7 +68,7 @@ const BestDeals = () => {
           </div>
 
 
-          <div className='p-8 space-y-3  hover:bg-white hover:text-[#014c57] border-b'>
+          <div className='p-8 hidden md:flex flex-col space-y-3  hover:bg-white hover:text-[#014c57] border-b'>
           <BiSupport  className='text-3xl' />
           <h4 className='text-2xl'>24/7 Support</h4>
           <p>Get help anytime with our dedicated customer support team.</p>

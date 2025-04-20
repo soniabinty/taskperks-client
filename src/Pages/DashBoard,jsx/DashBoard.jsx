@@ -1,5 +1,5 @@
 
-import { FaAd, FaBell, FaCoins, FaHome, FaListAlt, FaUsers } from 'react-icons/fa';
+import { FaAd, FaBell, FaCoins, FaHome, FaListAlt, FaUser, FaUsers } from 'react-icons/fa';
 
 import { GoTasklist } from 'react-icons/go';
 
@@ -89,7 +89,7 @@ const DashBoard = () => {
            <img
           src={users.photo}
           alt="User"
-          className="w-12 h-12 rounded-full border-2 border-green-500"
+          className="w-12 h-12 rounded-full border-2 border-[#014c57]"
         />
         <p className="text-md font-bold">
        {users?.name }
@@ -101,9 +101,9 @@ const DashBoard = () => {
 <div className='flex gap-7 px-5 '>
             <div>
           <p className="text-md flex gap-2 itens-center ">
-           <FaCoins className='text-yellow-600'></FaCoins> <span className="font-bold text-green-500">{parseInt(users?.coins)}</span>
+           <FaCoins className='text-yellow-600'></FaCoins> <span className="font-bold text-[#014c57]">{parseInt(users?.coins)}</span>
           </p>
-          <p className="text-md font-bold text-green-500">
+          <p className="text-md font-bold text-[#014c57]">
 {users?.role }
           </p>
           
@@ -111,7 +111,7 @@ const DashBoard = () => {
       
         <div className="relative">
                 <FaBell
-                  className="text-xl cursor-pointer text-green-500"
+                  className="text-xl cursor-pointer text-[#014c57]"
                   onClick={togglePopup}
                 />
                 {/* {notifications.length > 0 && (
@@ -152,7 +152,7 @@ const DashBoard = () => {
       </div>
 </div>
           <Outlet></Outlet>
-          <Footer></Footer>
+        
       </div>
     
     </div>
@@ -166,7 +166,7 @@ const DashBoard = () => {
 <div>
   <div className='min-h-screen'>
 
-  <div className=' bg-blue-500 text-white p-4 w-56 min-h-screen'>
+  <div className=' bg-[#014c57] text-white p-4 w-56 min-h-screen '>
 <div className="flex items-center gap-4">
           <div className="font-bold text-lg mb-4">
             <Link to={'/'}>TaskPerks</Link></div>
@@ -241,8 +241,8 @@ Add New Tasks
       <li ><NavLink to={'/dashboard/purchase'}> 
       <div className='flex items-center gap-1'>
       <RiCoinsFill />
-     Purchase Coin
-</div>
+       Purchase Coin
+      </div>
       </NavLink></li>
 
       <li ><NavLink to={'/dashboard/payment'}> 
@@ -304,6 +304,15 @@ isWorker &&
    
 
 }
+
+
+
+<li ><NavLink to={'/dashboard/profile'}> 
+<div className='flex items-center gap-1'>
+<FaUser></FaUser>
+Profile
+</div>
+</NavLink></li>
 
 
   </ul>
