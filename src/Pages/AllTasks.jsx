@@ -45,7 +45,7 @@ const AllTasks = () => {
         {filteredTasks.map((task) => (
           <div
             key={task._id}
-            className="bg-white rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition duration-300"
+            className="bg-white rounded-lg shadow-lg border max-sm:mx-5 border-gray-200 hover:shadow-xl transition duration-300"
           >
             <img className="w-full h-[180px]" src={task.image} alt="" />
             <div className="p-2 flex flex-col grow">
