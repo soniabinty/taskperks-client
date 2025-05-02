@@ -109,7 +109,7 @@ const AdminHome = () => {
         Pending Withdrawal Requests
       </h3>
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white rounded-lg shadow-md">
+        <table className="min-w-full rounded-lg shadow-md">
           <thead>
             <tr className="border-b bg-gray-50">
               <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">

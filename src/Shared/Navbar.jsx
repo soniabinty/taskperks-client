@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
-import { FaCoins } from 'react-icons/fa';
+import { FaCoins, FaMoon, FaSun } from 'react-icons/fa';
 import useUser from '../Hooks/useUser';
 import { TbCoin } from 'react-icons/tb';
 
@@ -9,6 +9,20 @@ import { TbCoin } from 'react-icons/tb';
 const Navbar = () => {
   const {user ,signOutUser} = useAuth()
   const [users] = useUser()
+
+  const navigate = useNavigate()
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+ 
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme); // Persist theme to localStorage
+  }, [theme]);
+
+  // Toggle theme function
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
+  };
 
   const handleLogout = () =>{
     signOutUser()
@@ -123,6 +137,17 @@ const Navbar = () => {
       </ul>
     </div>
     <div className="navbar-end mr-4">
+    <button
+                onClick={toggleTheme}
+                className="p-2 bg-gray-200 rounded-full mr-2 hover:bg-gray-300 transition-all"
+                aria-label="Toggle Theme"
+              >
+                {theme === "dark" ? (
+                  <FaSun className="text-yellow-300" />
+                ) : (
+                  <FaMoon className="text-gray-800" />
+                )}
+              </button>
 
     {
       user &&   <p className="text-md items-center flex gap-1  rounded-full p-2 itens-center  mr-2">

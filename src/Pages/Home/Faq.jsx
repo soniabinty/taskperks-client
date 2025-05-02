@@ -11,7 +11,7 @@ const Faq = () => {
       {/* Right Section */}
       <div className="flex-1 w-full p-4  shadow-lg rounded-2xl space-y-8">
         {/* Header */}
-        <h2 className="text-4xl font-bold text-gray-800">
+        <h2 className="text-4xl font-bold text-gray-400">
           Frequently Asked Questions
         </h2>
 
